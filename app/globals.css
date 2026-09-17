@@ -4,49 +4,34 @@
 
 @layer base {
   :root {
-    /* Warm paper background — restrained, not the saturated cream default */
     --background: 42 28% 93%;
     --foreground: 155 20% 15%;
-
     --card: 42 22% 96%;
     --card-foreground: 155 20% 15%;
-
     --popover: 42 28% 94%;
     --popover-foreground: 155 20% 15%;
-
-    /* Charcoal-green ink */
     --primary: 155 22% 18%;
     --primary-foreground: 42 28% 93%;
-
-    /* Safety-lime wayfinding */
     --secondary: 72 76% 50%;
     --secondary-foreground: 155 22% 18%;
-
-    /* Cobalt source annotations */
     --accent: 218 64% 36%;
     --accent-foreground: 42 28% 93%;
-
     --muted: 42 14% 85%;
     --muted-foreground: 155 12% 38%;
-
-    /* Rust details */
     --destructive: 18 52% 42%;
     --destructive-foreground: 42 28% 93%;
-
     --border: 42 16% 78%;
     --input: 42 16% 78%;
     --ring: 155 22% 18%;
-
     --radius: 0.25rem;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
     font-feature-settings: 'kern' 1, 'liga' 1;
   }
   .skip-link {
@@ -56,29 +41,55 @@
 
 @layer components {
   .font-serif-display {
-    font-family: Georgia, 'Times New Roman', 'Noto Serif', serif;
+    font-family: 'Source Serif 4', Georgia, serif;
     font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
   }
   .font-mono-id {
-    font-family: 'Courier New', 'Courier', 'Noto Sans Mono', monospace;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
     font-feature-settings: 'tnum' 1;
     letter-spacing: 0.04em;
   }
 }
 
 @layer utilities {
-  .ease-out-expo {
-    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  .ease-out-expo { transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+  .ease-spring { transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+  .paper-texture {
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, hsl(42 20% 90% / 0.3) 2px, hsl(42 20% 90% / 0.3) 3px),
+      radial-gradient(ellipse at 30% 20%, hsl(42 30% 95%) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 80%, hsl(42 25% 92%) 0%, transparent 60%);
   }
-  .ease-in-expo {
-    transition-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+
+  .grid-paper {
+    background-image:
+      linear-gradient(hsl(42 16% 78% / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(42 16% 78% / 0.4) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
-  .ease-in-out-expo {
-    transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+
+  .topo-lines {
+    background-image: repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 20px, hsl(155 22% 18% / 0.03) 20px, hsl(155 22% 18% / 0.03) 21px);
   }
-  .ease-spring {
-    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  .stamp {
+    border: 2px solid hsl(var(--primary));
+    color: hsl(var(--primary));
+    padding: 2px 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transform: rotate(-2deg);
+    display: inline-block;
+    opacity: 0.85;
   }
+
+  .shadow-paper { box-shadow: 0 1px 3px hsl(155 22% 18% / 0.08), 0 4px 12px hsl(155 22% 18% / 0.06); }
+  .shadow-lifted { box-shadow: 0 2px 6px hsl(155 22% 18% / 0.1), 0 8px 24px hsl(155 22% 18% / 0.08); }
+  .shadow-deep { box-shadow: 0 4px 12px hsl(155 22% 18% / 0.12), 0 16px 48px hsl(155 22% 18% / 0.1); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -7,51 +7,51 @@ import AtlasCartographicDesign from '@/components/designs/atlas-cartographic-des
 
 type DesignId = 'field-notebook' | 'industrial-wayfinding' | 'atlas-cartographic';
 
-const DESIGNS: { id: DesignId; label: string; description: string }[] = [
-  { id: 'field-notebook', label: 'Field Notebook', description: 'Editorial paper, hand-annotated margins, documentary collage' },
-  { id: 'industrial-wayfinding', label: 'Industrial Wayfinding', description: 'Bold signage, safety-lime signals, structural grid' },
-  { id: 'atlas-cartographic', label: 'Atlas Cartographic', description: 'Map-based navigation, survey lines, topographic palette' },
+const DESIGNS: { id: DesignId; label: string; sub: string }[] = [
+  { id: 'field-notebook', label: 'Field Notebook', sub: 'Editorial paper' },
+  { id: 'industrial-wayfinding', label: 'Industrial Wayfinding', sub: 'Safety signage' },
+  { id: 'atlas-cartographic', label: 'Atlas Cartographic', sub: 'Survey map' },
 ];
 
 export default function Home() {
-  const [activeDesign, setActiveDesign] = useState<DesignId>('field-notebook');
+  const [active, setActive] = useState<DesignId>('field-notebook');
 
   return (
     <>
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
-
-      {/* Design switcher bar */}
-      <div className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-          <div className="flex items-center gap-2">
-            <span className="font-mono-id text-xs text-muted-foreground">TH / DESIGN REVIEW</span>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+      <div className="sticky top-0 z-50 border-b border-border bg-primary text-primary-foreground shadow-paper">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2.5 sm:px-6">
+          <div className="flex items-center gap-3">
+            <div className="flex h-7 w-7 items-center justify-center rounded-sm bg-secondary">
+              <span className="font-serif-display text-xs font-bold text-primary">TH</span>
+            </div>
+            <span className="font-mono-id text-xs uppercase tracking-widest text-primary-foreground/80">
+              Design Review
+            </span>
           </div>
-          <div className="flex items-center gap-1 sm:gap-2">
+          <div className="flex items-center gap-1.5">
             {DESIGNS.map((d) => (
               <button
                 key={d.id}
-                onClick={() => setActiveDesign(d.id)}
-                className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
-                  activeDesign === d.id
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+                onClick={() => setActive(d.id)}
+                className={`group rounded-sm px-3 py-1.5 text-xs font-medium transition-all ${
+                  active === d.id
+                    ? 'bg-secondary text-primary'
+                    : 'text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground'
                 }`}
-                aria-pressed={activeDesign === d.id}
-                title={d.description}
+                aria-pressed={active === d.id}
               >
-                {d.label}
+                <span className="font-semibold">{d.label}</span>
+                <span className="ml-1.5 hidden font-mono-id text-[10px] opacity-60 sm:inline">{d.sub}</span>
               </button>
             ))}
           </div>
         </div>
       </div>
-
       <main id="main-content">
-        {activeDesign === 'field-notebook' && <FieldNotebookDesign />}
-        {activeDesign === 'industrial-wayfinding' && <IndustrialWayfindingDesign />}
-        {activeDesign === 'atlas-cartographic' && <AtlasCartographicDesign />}
+        {active === 'field-notebook' && <FieldNotebookDesign />}
+        {active === 'industrial-wayfinding' && <IndustrialWayfindingDesign />}
+        {active === 'atlas-cartographic' && <AtlasCartographicDesign />}
       </main>
     </>
   );
