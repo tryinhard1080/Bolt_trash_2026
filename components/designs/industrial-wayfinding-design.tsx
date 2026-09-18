@@ -3,6 +3,7 @@
 import {
   ArrowRight, Building2, Truck, Recycle, ClipboardCheck,
   ExternalLink, Hash, Layers, Zap, TriangleAlert, Ruler,
+  ShieldCheck, Maximize2,
 } from 'lucide-react';
 
 const CATEGORIES = [
@@ -36,9 +37,10 @@ export default function IndustrialWayfindingDesign() {
     <div className="min-h-screen bg-background">
       <a href="#main" className="skip-link">Skip to content</a>
 
-      {/* Utility bar */}
-      <div className="border-b-2 border-secondary bg-primary text-primary-foreground">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-1.5 sm:px-6">
+      {/* Hazard-stripe utility bar */}
+      <div className="relative bg-primary text-primary-foreground">
+        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'repeating-linear-gradient(135deg, transparent, transparent 8px, hsl(72 76% 50%) 8px, hsl(72 76% 50%) 16px)' }} />
+        <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6">
           <span className="font-mono-id text-xs uppercase tracking-widest">TH / FIELD STATION</span>
           <div className="flex items-center gap-4">
             <span className="font-mono-id text-xs uppercase tracking-widest text-primary-foreground/70">EST. 2026</span>
@@ -50,12 +52,13 @@ export default function IndustrialWayfindingDesign() {
       </div>
 
       {/* Header */}
-      <header className="border-b-2 border-primary bg-card shadow-paper">
+      <header className="border-b-4 border-primary bg-card shadow-[0_4px_12px_hsl(155_22%_18%_/_0.08)]">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="flex h-14 w-14 items-center justify-center bg-primary shadow-lifted">
+              <div className="relative flex h-14 w-14 items-center justify-center bg-primary shadow-[0_4px_16px_hsl(155_22%_18%_/_0.3)]">
                 <span className="font-serif-display text-2xl font-bold text-primary-foreground">TH</span>
+                <div className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full border-2 border-primary bg-secondary" />
               </div>
               <div>
                 <h1 className="font-serif-display text-2xl font-bold uppercase tracking-tight text-primary sm:text-3xl" style={{ textWrap: 'balance' }}>The Trash Hub</h1>
@@ -73,24 +76,24 @@ export default function IndustrialWayfindingDesign() {
       </header>
 
       <main id="main">
-        {/* Hero */}
-        <section className="relative border-b-2 border-primary" aria-labelledby="hero-heading">
+        {/* Hero — split with image, dramatic scale */}
+        <section className="relative border-b-4 border-primary" aria-labelledby="hero-heading">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="grid lg:grid-cols-12">
               <div className="lg:col-span-7 lg:border-r-2 lg:border-dashed lg:border-border">
-                <div className="py-10 sm:py-14 lg:pr-10 lg:pt-20">
-                  <div className="inline-flex items-center gap-2 bg-secondary px-3 py-1 shadow-[0_2px_8px_hsl(72_76%_50%_/__0.3)] animate-fade-in">
+                <div className="py-12 sm:py-16 lg:pr-10 lg:pt-20">
+                  <div className="inline-flex items-center gap-2 bg-secondary px-3 py-1 shadow-[0_2px_12px_hsl(72_76%_50%_/_0.4)] animate-fade-in">
                     <Zap className="h-3.5 w-3.5 text-primary" />
                     <span className="font-mono-id text-xs font-bold uppercase tracking-widest text-primary">FIELD STATION / 01</span>
                   </div>
-                  <h2 id="hero-heading" className="mt-6 font-serif-display text-4xl font-bold uppercase leading-none text-primary sm:text-5xl lg:text-6xl animate-fade-up" style={{ textWrap: 'balance' }}>
+                  <h2 id="hero-heading" className="mt-6 font-serif-display text-5xl font-bold uppercase leading-[0.95] text-primary sm:text-6xl lg:text-7xl animate-fade-up" style={{ textWrap: 'balance' }}>
                     Recognize<br />the system
                   </h2>
                   <p className="mt-6 max-w-md text-base leading-relaxed text-foreground animate-fade-up" style={{ animationDelay: '0.1s' }}>
                     A public visual resource library and public-fact supplier directory. Identify waste systems, find lifecycle guides, inspect public evidence.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-                    <a href="#guides" className="inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lifted">
+                    <a href="#guides" className="inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_hsl(155_22%_18%_/_0.3)]">
                       Enter guides<ArrowRight className="h-4 w-4" />
                     </a>
                     <a href="#suppliers" className="inline-flex items-center gap-2 border-2 border-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary transition-all hover:bg-primary hover:text-primary-foreground">
@@ -102,11 +105,11 @@ export default function IndustrialWayfindingDesign() {
               <div className="lg:col-span-5">
                 <div className="relative h-64 lg:h-full">
                   <img src="/industrial-wayfinding.webp" alt="Industrial waste transfer station with overhead structure and safety signage" className="h-full w-full object-cover animate-scale-in" width={500} height={600} />
-                  <div className="absolute bottom-0 left-0 bg-primary px-4 py-2 shadow-lifted">
+                  <div className="absolute bottom-0 left-0 bg-primary px-4 py-2 shadow-[0_4px_12px_hsl(155_22%_18%_/_0.3)]">
                     <p className="font-mono-id text-xs uppercase tracking-widest text-primary-foreground">FIG.01 / TRANSFER STATION</p>
                   </div>
-                  <div className="absolute right-3 top-3 flex items-center gap-1.5 bg-secondary px-2 py-1 shadow-[0_2px_8px_hsl(72_76%_50%_/_0.4)]">
-                    <Ruler className="h-3 w-3 text-primary" />
+                  <div className="absolute right-3 top-3 flex items-center gap-1.5 bg-secondary px-2 py-1 shadow-[0_2px_8px_hsl(72_76%_50%_/_0.5)]">
+                    <div className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
                     <span className="font-mono-id text-[10px] font-bold uppercase text-primary">LIVE</span>
                   </div>
                 </div>
@@ -115,16 +118,16 @@ export default function IndustrialWayfindingDesign() {
           </div>
         </section>
 
-        {/* Categories — bento */}
-        <section id="categories" className="border-b-2 border-primary bg-card" aria-labelledby="cat-heading">
+        {/* Categories — bento with hover glow */}
+        <section id="categories" className="border-b-4 border-primary bg-card" aria-labelledby="cat-heading">
           <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14">
             <div className="flex items-center gap-3">
-              <div className="h-6 w-1.5 bg-secondary shadow-[0_0_6px_hsl(72_76%_50%)]" />
+              <div className="h-6 w-1.5 bg-secondary shadow-[0_0_8px_hsl(72_76%_50%)]" />
               <h2 id="cat-heading" className="font-serif-display text-xl font-bold uppercase tracking-tight text-primary" style={{ textWrap: 'balance' }}>Wayfinding Categories</h2>
             </div>
             <div className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-4 lg:auto-rows-[minmax(120px,auto)]">
               {CATEGORIES.map((cat) => (
-                <a key={cat.code} href="#guides" className={`group relative overflow-hidden border-2 border-primary bg-background transition-all hover:bg-primary hover:shadow-lifted animate-fade-up ${cat.span}`}>
+                <a key={cat.code} href="#guides" className={`group relative overflow-hidden border-2 border-primary bg-background transition-all hover:bg-primary hover:shadow-[0_8px_24px_hsl(155_22%_18%_/_0.2)] animate-fade-up ${cat.span}`}>
                   <div className="p-5">
                     <div className="flex items-start justify-between">
                       <cat.icon className="h-8 w-8 text-primary group-hover:text-primary-foreground" />
@@ -133,7 +136,7 @@ export default function IndustrialWayfindingDesign() {
                     <p className="mt-4 text-sm font-bold uppercase tracking-wide text-primary group-hover:text-primary-foreground">{cat.label}</p>
                     <p className="mt-1 font-mono-id text-xs text-muted-foreground group-hover:text-primary-foreground/70">{cat.count} guides</p>
                   </div>
-                  <div className="h-1 w-full bg-border group-hover:bg-secondary transition-colors" />
+                  <div className="h-1 w-full bg-border transition-colors group-hover:bg-secondary" />
                 </a>
               ))}
             </div>
@@ -141,18 +144,18 @@ export default function IndustrialWayfindingDesign() {
         </section>
 
         {/* Guides — structural grid */}
-        <section id="guides" className="border-b-2 border-primary" aria-labelledby="guides-heading">
+        <section id="guides" className="border-b-4 border-primary" aria-labelledby="guides-heading">
           <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="h-6 w-1.5 bg-secondary shadow-[0_0_6px_hsl(72_76%_50%)]" />
+                <div className="h-6 w-1.5 bg-secondary shadow-[0_0_8px_hsl(72_76%_50%)]" />
                 <h2 id="guides-heading" className="font-serif-display text-xl font-bold uppercase tracking-tight text-primary" style={{ textWrap: 'balance' }}>Property-Lifecycle Guides</h2>
               </div>
               <span className="font-mono-id text-xs uppercase text-muted-foreground">{GUIDES.length} entries</span>
             </div>
             <div className="mt-8 grid gap-px bg-border lg:grid-cols-5">
               {GUIDES.map((guide) => (
-                <article key={guide.code} className={`group flex flex-col bg-card p-6 transition-colors hover:bg-background animate-fade-up ${guide.size}`}>
+                <article key={guide.code} className={`group flex flex-col bg-card p-6 transition-all hover:bg-background hover:shadow-[0_4px_16px_hsl(155_22%_18%_/_0.1)] animate-fade-up ${guide.size}`}>
                   <div className="flex items-center justify-between">
                     <span className="inline-flex items-center bg-secondary px-2 py-0.5 font-mono-id text-xs font-bold uppercase text-primary">{guide.lifecycle}</span>
                     <span className="font-mono-id text-xs font-bold text-accent">{guide.code}</span>
@@ -169,15 +172,19 @@ export default function IndustrialWayfindingDesign() {
           </div>
         </section>
 
-        {/* Atlas */}
-        <section className="border-b-2 border-primary bg-card" aria-labelledby="atlas-heading">
+        {/* Atlas — with expand icon */}
+        <section className="border-b-4 border-primary bg-card" aria-labelledby="atlas-heading">
           <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14">
             <div className="flex items-center gap-3">
-              <div className="h-6 w-1.5 bg-secondary shadow-[0_0_6px_hsl(72_76%_50%)]" />
+              <div className="h-6 w-1.5 bg-secondary shadow-[0_0_8px_hsl(72_76%_50%)]" />
               <h2 id="atlas-heading" className="font-serif-display text-xl font-bold uppercase tracking-tight text-primary" style={{ textWrap: 'balance' }}>Visual Guide Atlas</h2>
             </div>
-            <div className="mt-8 overflow-hidden border-2 border-primary shadow-lifted animate-scale-in">
+            <div className="group relative mt-8 overflow-hidden border-2 border-primary shadow-[0_8px_32px_hsl(155_22%_18%_/_0.15)] animate-scale-in">
               <img src="/guide-atlas.webp" alt="Three-panel visual guide atlas for waste systems" className="w-full object-cover" width={1200} height={500} />
+              <div className="absolute right-3 top-3 flex items-center gap-1 bg-primary/80 px-2 py-1 backdrop-blur-sm transition-opacity group-hover:opacity-0">
+                <Maximize2 className="h-3 w-3 text-secondary" />
+                <span className="font-mono-id text-[10px] uppercase text-secondary">Expand</span>
+              </div>
             </div>
             <div className="mt-4 grid gap-px bg-border sm:grid-cols-3">
               {PANELS.map((panel) => (
@@ -193,20 +200,20 @@ export default function IndustrialWayfindingDesign() {
           </div>
         </section>
 
-        {/* Suppliers */}
-        <section id="suppliers" className="border-b-2 border-primary bg-card" aria-labelledby="suppliers-heading">
+        {/* Suppliers — board with header row */}
+        <section id="suppliers" className="border-b-4 border-primary bg-card" aria-labelledby="suppliers-heading">
           <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14">
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <div className="h-6 w-1.5 bg-secondary shadow-[0_0_6px_hsl(72_76%_50%)]" />
+                <div className="h-6 w-1.5 bg-secondary shadow-[0_0_8px_hsl(72_76%_50%)]" />
                 <h2 id="suppliers-heading" className="font-serif-display text-xl font-bold uppercase tracking-tight text-primary" style={{ textWrap: 'balance' }}>Supplier Directory</h2>
               </div>
-              <div className="flex items-center gap-2 border border-destructive/30 bg-destructive/10 px-3 py-1">
+              <div className="flex items-center gap-2 border-2 border-destructive/40 bg-destructive/10 px-3 py-1">
                 <TriangleAlert className="h-3.5 w-3.5 text-destructive" />
                 <span className="font-mono-id text-xs uppercase text-destructive">No rankings / No endorsements</span>
               </div>
             </div>
-            <div className="mt-8 overflow-hidden border-2 border-primary shadow-paper">
+            <div className="mt-8 overflow-hidden border-2 border-primary shadow-[0_4px_16px_hsl(155_22%_18%_/_0.1)]">
               <div className="grid grid-cols-12 gap-px bg-border">
                 <div className="col-span-2 bg-primary px-4 py-3"><span className="font-mono-id text-xs uppercase tracking-widest text-primary-foreground">ID</span></div>
                 <div className="col-span-5 bg-primary px-4 py-3"><span className="font-mono-id text-xs uppercase tracking-widest text-primary-foreground">Name</span></div>
@@ -214,10 +221,10 @@ export default function IndustrialWayfindingDesign() {
                 <div className="col-span-2 bg-primary px-4 py-3"><span className="font-mono-id text-xs uppercase tracking-widest text-primary-foreground">Region</span></div>
                 {SUPPLIERS.map((s) => (
                   <div key={s.code} className="contents">
-                    <div className="col-span-2 bg-card px-4 py-3"><span className="font-mono-id text-xs font-bold text-accent">{s.code}</span></div>
-                    <div className="col-span-5 bg-card px-4 py-3"><span className="text-sm font-medium text-foreground">{s.name}</span></div>
-                    <div className="col-span-3 bg-card px-4 py-3"><span className="text-sm text-muted-foreground">{s.cat}</span></div>
-                    <div className="col-span-2 bg-card px-4 py-3"><span className="font-mono-id text-xs text-muted-foreground">{s.region}</span></div>
+                    <div className="col-span-2 bg-card px-4 py-3 transition-colors hover:bg-background"><span className="font-mono-id text-xs font-bold text-accent">{s.code}</span></div>
+                    <div className="col-span-5 bg-card px-4 py-3 transition-colors hover:bg-background"><span className="text-sm font-medium text-foreground">{s.name}</span></div>
+                    <div className="col-span-3 bg-card px-4 py-3 transition-colors hover:bg-background"><span className="text-sm text-muted-foreground">{s.cat}</span></div>
+                    <div className="col-span-2 bg-card px-4 py-3 transition-colors hover:bg-background"><span className="font-mono-id text-xs text-muted-foreground">{s.region}</span></div>
                   </div>
                 ))}
               </div>
@@ -227,14 +234,14 @@ export default function IndustrialWayfindingDesign() {
         </section>
 
         {/* Sources */}
-        <section id="sources" className="border-b-2 border-primary bg-background" aria-labelledby="sources-heading">
+        <section id="sources" className="border-b-4 border-primary bg-background" aria-labelledby="sources-heading">
           <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14">
             <div className="flex items-center gap-3">
-              <div className="h-6 w-1.5 bg-secondary shadow-[0_0_6px_hsl(72_76%_50%)]" />
+              <div className="h-6 w-1.5 bg-secondary shadow-[0_0_8px_hsl(72_76%_50%)]" />
               <h2 id="sources-heading" className="font-serif-display text-xl font-bold uppercase tracking-tight text-primary" style={{ textWrap: 'balance' }}>Source Records</h2>
             </div>
             <div className="mt-8 grid gap-px bg-border lg:grid-cols-2">
-              <div className="flex items-start gap-4 bg-card p-6 shadow-paper animate-fade-up">
+              <div className="flex items-start gap-4 bg-card p-6 shadow-[0_2px_8px_hsl(155_22%_18%_/_0.06)] animate-fade-up">
                 <Hash className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                 <div>
                   <p className="font-mono-id text-xs font-bold text-accent">SRC-EPA-MOVING-REDUCE-REUSE</p>
@@ -245,8 +252,8 @@ export default function IndustrialWayfindingDesign() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-start gap-4 bg-card p-6 shadow-paper animate-fade-up" style={{ animationDelay: '0.1s' }}>
-                <Layers className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+              <div className="flex items-start gap-4 bg-card p-6 shadow-[0_2px_8px_hsl(155_22%_18%_/_0.06)] animate-fade-up" style={{ animationDelay: '0.1s' }}>
+                <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                 <div>
                   <p className="font-mono-id text-xs font-bold text-accent">SRC-MANIFEST-2026-Q3</p>
                   <p className="mt-1 text-sm font-medium text-foreground">Source packet manifest, Q3 batch</p>
@@ -261,7 +268,7 @@ export default function IndustrialWayfindingDesign() {
         </section>
 
         {/* WasteWise */}
-        <section className="border-b-2 border-primary bg-secondary/15">
+        <section className="border-b-4 border-primary bg-secondary/15">
           <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
             <div className="flex items-center gap-3">
               <ExternalLink className="h-5 w-5 shrink-0 text-accent" />
@@ -274,12 +281,13 @@ export default function IndustrialWayfindingDesign() {
         </section>
       </main>
 
-      <footer className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+      <footer className="relative bg-primary text-primary-foreground">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(135deg, transparent, transparent 8px, hsl(72 76% 50%) 8px, hsl(72 76% 50%) 16px)' }} />
+        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
             <div>
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center bg-primary-foreground shadow-lifted">
+                <div className="flex h-10 w-10 items-center justify-center bg-primary-foreground shadow-[0_4px_12px_hsl(0_0%_0%_/_0.2)]">
                   <span className="font-serif-display text-lg font-bold text-primary">TH</span>
                 </div>
                 <div>

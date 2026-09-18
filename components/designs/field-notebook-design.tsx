@@ -3,7 +3,7 @@
 import {
   ArrowRight, MapPin, FileText, Search, CircleDot,
   ExternalLink, Hash, ShieldCheck, BookOpen, Layers,
-  ClipboardList, Truck, Ruler,
+  ClipboardList, Truck, Ruler, PenTool, Quote,
 } from 'lucide-react';
 
 const GUIDES = [
@@ -28,91 +28,92 @@ const STEPS = [
 
 export default function FieldNotebookDesign() {
   return (
-    <div className="paper-texture min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <a href="#main" className="skip-link">Skip to content</a>
 
-      <header className="border-b-2 border-primary bg-card/80 backdrop-blur-sm" role="banner">
-        <div className="mx-auto flex max-w-5xl items-center justify-between gap-6 px-5 py-5 sm:px-8">
-          <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-sm border-2 border-primary bg-background shadow-paper">
-              <span className="font-serif-display text-xl font-bold text-primary">TH</span>
-            </div>
-            <div>
-              <h1 className="font-serif-display text-xl font-bold leading-none text-primary sm:text-2xl">The Trash Hub</h1>
-              <p className="mt-1 text-sm italic text-muted-foreground">A visual field guide to waste</p>
+      {/* Full-bleed hero with image as the dominant element */}
+      <header className="relative" role="banner">
+        <div className="relative h-[70vh] min-h-[500px] w-full overflow-hidden">
+          <img src="/field-guide-hero.webp" alt="Multifamily waste collection area with three bins at curbside on an overcast morning" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent" />
+
+          {/* Identity lockup over image */}
+          <div className="absolute left-0 top-0 right-0">
+            <div className="mx-auto flex max-w-5xl items-center justify-between gap-6 px-5 py-5 sm:px-8">
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-sm border-2 border-secondary bg-primary/80 backdrop-blur-md">
+                  <span className="font-serif-display text-xl font-bold text-secondary">TH</span>
+                </div>
+                <div>
+                  <h1 className="font-serif-display text-xl font-bold leading-none text-background sm:text-2xl">The Trash Hub</h1>
+                  <p className="mt-1 text-sm italic text-background/70">A visual field guide to waste</p>
+                </div>
+              </div>
+              <nav className="hidden items-center gap-1 sm:flex" aria-label="Primary">
+                <a href="#guides" className="rounded-sm px-3 py-2 text-sm font-medium text-background/90 transition-colors hover:bg-primary-foreground/10 hover:text-background">Guides</a>
+                <a href="#suppliers" className="rounded-sm px-3 py-2 text-sm font-medium text-background/90 transition-colors hover:bg-primary-foreground/10 hover:text-background">Suppliers</a>
+                <a href="#sources" className="rounded-sm px-3 py-2 text-sm font-medium text-background/90 transition-colors hover:bg-primary-foreground/10 hover:text-background">Sources</a>
+              </nav>
             </div>
           </div>
-          <nav className="hidden items-center gap-1 sm:flex" aria-label="Primary">
-            <a href="#guides" className="rounded-sm px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted hover:text-primary">Guides</a>
-            <a href="#suppliers" className="rounded-sm px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted hover:text-primary">Suppliers</a>
-            <a href="#sources" className="rounded-sm px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted hover:text-primary">Sources</a>
-          </nav>
-        </div>
-      </header>
 
-      <main id="main">
-        {/* Hero */}
-        <section className="relative overflow-hidden border-b border-border" aria-labelledby="hero-heading">
-          <div className="mx-auto max-w-5xl px-5 pt-12 pb-12 sm:px-8 sm:pt-16 sm:pb-16">
-            <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+          {/* Hero text at bottom of image */}
+          <div className="absolute bottom-0 left-0 right-0 pb-10 sm:pb-14">
+            <div className="mx-auto max-w-5xl px-5 sm:px-8">
               <div className="animate-fade-up">
                 <div className="flex items-center gap-3">
-                  <span className="stamp">Field Guide</span>
-                  <span className="font-mono-id text-xs text-accent">Vol. 1 / 2026</span>
+                  <span className="rounded-sm border border-secondary bg-primary/60 px-2.5 py-1 font-mono-id text-xs uppercase tracking-widest text-secondary backdrop-blur-sm">Field Guide / Vol. 1</span>
+                  <span className="flex items-center gap-1.5 font-mono-id text-xs text-background/70"><Ruler className="h-3 w-3" />Evidence-first</span>
                 </div>
-                <h2 id="hero-heading" className="mt-5 font-serif-display text-3xl font-bold leading-tight text-primary sm:text-4xl" style={{ textWrap: 'balance' }}>
-                  A visual field guide to waste
+                <h2 className="mt-4 max-w-2xl font-serif-display text-4xl font-bold leading-[1.05] text-background sm:text-5xl" style={{ textWrap: 'balance' }}>
+                  Recognize the system.<br />Ask a better question.
                 </h2>
-                <p className="mt-4 max-w-prose text-base leading-relaxed text-muted-foreground">
-                  Identify the system. Find the guide. Inspect the evidence.
+                <p className="mt-4 max-w-md text-base leading-relaxed text-background/80">
+                  A public visual resource library and public-fact supplier directory for waste systems.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
-                  <a href="#guides" className="inline-flex min-h-11 items-center gap-2 rounded-sm bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lifted">
+                  <a href="#guides" className="inline-flex min-h-11 items-center gap-2 rounded-sm bg-secondary px-5 py-2.5 text-sm font-bold text-primary transition-all hover:bg-secondary/90 hover:shadow-[0_4px_20px_hsl(72_76%_50%_/_0.4)]">
                     Browse guides <ArrowRight className="h-4 w-4" />
                   </a>
-                  <a href="#suppliers" className="inline-flex min-h-11 items-center gap-2 rounded-sm border border-primary bg-card px-5 py-2.5 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground">
+                  <a href="#suppliers" className="inline-flex min-h-11 items-center gap-2 rounded-sm border border-background/30 bg-primary/40 px-5 py-2.5 text-sm font-medium text-background backdrop-blur-sm transition-all hover:bg-primary/60">
                     Supplier directory
                   </a>
                 </div>
               </div>
-              <div className="relative animate-fade-in">
-                <div className="overflow-hidden rounded-sm border-2 border-primary shadow-deep">
-                  <img src="/field-guide-hero.webp" alt="Multifamily waste collection area with three bins at curbside on an overcast morning" className="aspect-[4/3] w-full object-cover" width={600} height={450} />
-                </div>
-                <div className="absolute -bottom-3 -left-3 flex items-center gap-2 rounded-sm border border-accent bg-card px-3 py-1.5 shadow-lifted">
-                  <Ruler className="h-3 w-3 text-accent" />
-                  <p className="font-mono-id text-xs text-accent">FIG. 01 / Collection access</p>
-                </div>
-                <div className="absolute -right-2 top-4 stamp opacity-70">Evidence</div>
-              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </header>
 
-        {/* Steps */}
+      <main id="main">
+        {/* Steps — horizontal flow with connecting line */}
         <section className="border-b border-border bg-card" aria-labelledby="approach-heading">
           <div className="mx-auto max-w-5xl px-5 py-10 sm:px-8 sm:py-12">
             <h3 id="approach-heading" className="font-serif-display text-lg font-semibold text-primary" style={{ textWrap: 'balance' }}>
               How to use this field guide
             </h3>
-            <ol className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {STEPS.map((item, i) => (
-                <li key={item.label} className="flex flex-col gap-2">
-                  <div className="flex items-center gap-2.5">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-primary bg-background shadow-paper">
-                      <item.icon className="h-4 w-4 text-primary" />
-                    </span>
-                    <span className="font-mono-id text-xs text-muted-foreground">Step {i + 1}</span>
-                  </div>
-                  <p className="text-sm font-semibold text-foreground">{item.label}</p>
-                  <p className="text-xs leading-relaxed text-muted-foreground">{item.desc}</p>
-                </li>
-              ))}
-            </ol>
+            <div className="relative mt-8">
+              <div className="absolute left-0 right-0 top-[18px] hidden border-t border-dashed border-border lg:block" />
+              <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {STEPS.map((item, i) => (
+                  <li key={item.label} className="relative flex flex-col gap-2">
+                    <div className="flex items-center gap-2.5">
+                      <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border-2 border-primary bg-card shadow-paper">
+                        <item.icon className="h-4 w-4 text-primary" />
+                      </span>
+                      <span className="font-mono-id text-xs text-muted-foreground">Step {i + 1}</span>
+                    </div>
+                    <p className="text-sm font-semibold text-foreground">{item.label}</p>
+                    <p className="text-xs leading-relaxed text-muted-foreground">{item.desc}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
         </section>
 
-        {/* Guides */}
+        {/* Guides — divided list with hover expansion */}
         <section id="guides" className="border-b border-border" aria-labelledby="guides-heading">
           <div className="mx-auto max-w-5xl px-5 py-12 sm:px-8 sm:py-16">
             <div className="flex items-end justify-between">
@@ -126,9 +127,9 @@ export default function FieldNotebookDesign() {
             </div>
             <div className="mt-8 divide-y divide-border border-y border-border">
               {GUIDES.map((guide) => (
-                <article key={guide.id} className="group flex flex-col gap-3 py-5 transition-colors hover:bg-card/50 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+                <article key={guide.id} className="group flex flex-col gap-3 py-5 transition-all hover:bg-card/60 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pl-4 sm:hover:pl-6">
                   <div className="flex items-start gap-4 sm:flex-1">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-border bg-card shadow-paper">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-border bg-card shadow-paper transition-colors group-hover:border-primary group-hover:bg-background">
                       <guide.icon className="h-5 w-5 text-primary" />
                     </span>
                     <div>
@@ -147,7 +148,7 @@ export default function FieldNotebookDesign() {
           </div>
         </section>
 
-        {/* Atlas */}
+        {/* Atlas — large image with overlaid annotations */}
         <section className="border-b border-border bg-card" aria-labelledby="atlas-heading">
           <div className="mx-auto max-w-5xl px-5 py-12 sm:px-8 sm:py-16">
             <h2 id="atlas-heading" className="font-serif-display text-2xl font-bold text-primary" style={{ textWrap: 'balance' }}>
@@ -156,21 +157,37 @@ export default function FieldNotebookDesign() {
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
               A three-panel reference covering access, materials, and site walks.
             </p>
-            <div className="mt-6 overflow-hidden rounded-sm border-2 border-primary shadow-lifted">
-              <img src="/guide-atlas.webp" alt="Three-panel visual guide atlas showing access diagrams, material categories, and site walk checklist" className="w-full object-cover" width={1000} height={500} />
-            </div>
-            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
               {[
-                { ref: 'Panel A', desc: 'Collection access cross-section' },
-                { ref: 'Panel B', desc: 'Material category grid' },
-                { ref: 'Panel C', desc: 'Site walk checklist' },
+                { ref: 'Panel A', desc: 'Collection access cross-section', icon: Ruler },
+                { ref: 'Panel B', desc: 'Material category grid', icon: Layers },
+                { ref: 'Panel C', desc: 'Site walk checklist', icon: ClipboardList },
               ].map((panel) => (
-                <div key={panel.ref} className="rounded-sm border border-border bg-background px-3 py-2.5 shadow-paper">
-                  <p className="font-mono-id text-xs text-accent">{panel.ref}</p>
-                  <p className="mt-0.5 text-xs text-muted-foreground">{panel.desc}</p>
+                <div key={panel.ref} className="rounded-sm border border-border bg-background p-4 shadow-paper">
+                  <div className="flex items-center gap-2">
+                    <panel.icon className="h-3.5 w-3.5 text-accent" />
+                    <span className="font-mono-id text-xs text-accent">{panel.ref}</span>
+                  </div>
+                  <p className="mt-2 text-xs text-muted-foreground">{panel.desc}</p>
                 </div>
               ))}
             </div>
+            <div className="mt-4 overflow-hidden rounded-sm border-2 border-primary shadow-[0_8px_32px_hsl(155_22%_18%_/_0.15)]">
+              <img src="/guide-atlas.webp" alt="Three-panel visual guide atlas showing access diagrams, material categories, and site walk checklist" className="w-full object-cover" width={1000} height={500} />
+            </div>
+          </div>
+        </section>
+
+        {/* Pull quote — editorial moment */}
+        <section className="border-b border-border bg-primary text-primary-foreground">
+          <div className="mx-auto max-w-3xl px-5 py-16 text-center sm:px-8 sm:py-20">
+            <Quote className="mx-auto h-8 w-8 text-secondary" />
+            <blockquote className="mt-6 font-serif-display text-2xl font-medium leading-relaxed sm:text-3xl" style={{ textWrap: 'balance' }}>
+              The point is not to rank suppliers or grade properties. It is to help you see the system clearly enough to ask a better local question.
+            </blockquote>
+            <p className="mt-6 font-mono-id text-xs uppercase tracking-widest text-primary-foreground/60">
+              Editorial Position / The Trash Hub
+            </p>
           </div>
         </section>
 
@@ -254,8 +271,8 @@ export default function FieldNotebookDesign() {
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <div className="flex items-center gap-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-sm border border-primary-foreground/30">
-                  <span className="font-serif-display text-sm font-bold">TH</span>
+                <div className="flex h-8 w-8 items-center justify-center rounded-sm border border-secondary">
+                  <span className="font-serif-display text-sm font-bold text-secondary">TH</span>
                 </div>
                 <span className="font-serif-display text-lg font-semibold">The Trash Hub</span>
               </div>

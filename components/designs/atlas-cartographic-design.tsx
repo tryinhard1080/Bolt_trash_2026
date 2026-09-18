@@ -3,6 +3,7 @@
 import {
   Compass, MapPin, ArrowRight, ArrowDownRight, ExternalLink,
   Hash, Route, Crosshair, Navigation, Fingerprint, Layers, Ruler,
+  ShieldCheck, Move,
 } from 'lucide-react';
 
 const ROUTES = [
@@ -27,26 +28,32 @@ const SUPPLIERS = [
 
 export default function AtlasCartographicDesign() {
   return (
-    <div className="topo-lines min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <a href="#main" className="skip-link">Skip to content</a>
 
-      {/* Coordinate strip */}
-      <div className="border-b border-dashed border-border bg-card/80 backdrop-blur-sm">
+      {/* Coordinate strip with compass */}
+      <div className="border-b-2 border-dashed border-border bg-card">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2 sm:px-8">
           <div className="flex items-center gap-2">
             <Compass className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
             <span className="font-mono-id text-xs text-muted-foreground">THE TRASH HUB / CARTOGRAPHIC SURVEY</span>
           </div>
-          <span className="font-mono-id text-xs text-muted-foreground">PLATE 01 / 2026</span>
+          <div className="flex items-center gap-3">
+            <span className="font-mono-id text-xs text-muted-foreground">PLATE 01 / 2026</span>
+            <span className="flex items-center gap-1 font-mono-id text-xs text-accent">
+              <span className="h-1.5 w-1.5 rounded-full bg-secondary shadow-[0_0_4px_hsl(72_76%_50%)]" />
+              SURVEY ACTIVE
+            </span>
+          </div>
         </div>
       </div>
 
-      {/* Header */}
-      <header className="border-b-2 border-primary bg-card/80 backdrop-blur-sm shadow-paper">
+      {/* Header with circular TH mark */}
+      <header className="border-b-2 border-primary bg-card shadow-[0_2px_8px_hsl(155_22%_18%_/_0.06)]">
         <div className="mx-auto max-w-6xl px-6 py-8 sm:px-8 sm:py-10">
           <div className="flex items-end justify-between gap-6">
             <div className="flex items-center gap-3">
-              <div className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-primary bg-background shadow-lifted">
+              <div className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-primary bg-background shadow-[0_4px_12px_hsl(155_22%_18%_/_0.1)]">
                 <span className="font-serif-display text-xl font-bold text-primary">TH</span>
                 <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full border-2 border-primary bg-secondary shadow-[0_0_6px_hsl(72_76%_50%)]" />
               </div>
@@ -65,7 +72,7 @@ export default function AtlasCartographicDesign() {
       </header>
 
       <main id="main">
-        {/* Hero */}
+        {/* Hero — map as the dominant element with contour overlay */}
         <section className="relative overflow-hidden border-b border-border" aria-labelledby="hero-heading">
           <div className="mx-auto max-w-6xl px-6 pt-12 pb-10 sm:px-8 sm:pt-16 sm:pb-14">
             <div className="grid gap-10 md:grid-cols-12 md:items-center">
@@ -81,7 +88,7 @@ export default function AtlasCartographicDesign() {
                   A public visual resource library and public-fact supplier directory. Read the place, trace the route, inspect the evidence.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
-                  <a href="#guides" className="inline-flex min-h-[44px] items-center gap-2 rounded-sm bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lifted">
+                  <a href="#guides" className="inline-flex min-h-[44px] items-center gap-2 rounded-sm bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_6px_20px_hsl(155_22%_18%_/_0.25)]">
                     Open the atlas <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </a>
                   <a href="#suppliers" className="inline-flex min-h-[44px] items-center gap-2 rounded-sm border border-primary px-5 py-2.5 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground">
@@ -90,23 +97,26 @@ export default function AtlasCartographicDesign() {
                 </div>
               </div>
               <div className="md:col-span-7 animate-fade-in">
-                <div className="relative overflow-hidden rounded-sm border-2 border-primary shadow-deep">
+                <div className="group relative overflow-hidden rounded-sm border-2 border-primary shadow-[0_8px_32px_hsl(155_22%_18%_/_0.15)]">
                   <img src="/atlas-cartographic.webp" alt="Cartographic survey map of waste collection routes" className="w-full object-cover" width={700} height={450} />
-                  <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-sm border border-accent bg-card/90 px-2.5 py-1 shadow-paper backdrop-blur-sm">
+                  {/* Corner annotations */}
+                  <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-sm border border-accent bg-card/90 px-2.5 py-1 shadow-[0_2px_8px_hsl(0_0%_0%_/_0.1)] backdrop-blur-sm">
                     <Crosshair className="h-3 w-3 text-accent" />
                     <p className="font-mono-id text-xs text-accent">SURVEY MAP / 01</p>
                   </div>
-                  <div className="absolute bottom-3 right-3 flex items-center gap-2 rounded-sm border border-primary bg-card/90 px-2.5 py-1 shadow-paper backdrop-blur-sm">
+                  <div className="absolute bottom-3 right-3 flex items-center gap-2 rounded-sm border border-primary bg-card/90 px-2.5 py-1 shadow-[0_2px_8px_hsl(0_0%_0%_/_0.1)] backdrop-blur-sm">
                     <Navigation className="h-3 w-3 text-primary" aria-hidden="true" />
                     <span className="font-mono-id text-xs text-primary">N / SCALE 1:2400</span>
                   </div>
+                  {/* Coordinate grid overlay on hover */}
+                  <div className="absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100" style={{ backgroundImage: 'linear-gradient(hsl(155 22% 18%_/_0.15) 1px, transparent 1px), linear-gradient(90deg, hsl(155 22% 18%_/_0.15) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Survey routes */}
+        {/* Survey routes — varied layout with dashed map lines */}
         <section className="border-b border-border bg-card" aria-labelledby="routes-heading">
           <div className="mx-auto max-w-6xl px-6 py-12 sm:px-8 sm:py-16">
             <div className="flex items-end justify-between">
@@ -115,8 +125,8 @@ export default function AtlasCartographicDesign() {
             </div>
 
             <div className="mt-8 grid gap-4 lg:grid-cols-12">
-              {/* R-01 featured */}
-              <article className="group rounded-sm border border-dashed border-border bg-background p-6 transition-all hover:border-primary hover:border-solid hover:shadow-lifted lg:col-span-7 animate-fade-up">
+              {/* R-01 featured with dashed map line */}
+              <article className="group rounded-sm border border-dashed border-border bg-background p-6 transition-all hover:border-primary hover:border-solid hover:shadow-[0_8px_24px_hsl(155_22%_18%_/_0.12)] lg:col-span-7 animate-fade-up">
                 <div className="flex items-center justify-between">
                   <span className="font-mono-id text-sm text-accent">{ROUTES[0].id}</span>
                   <Crosshair className="h-4 w-4 text-secondary" aria-hidden="true" />
@@ -133,7 +143,7 @@ export default function AtlasCartographicDesign() {
               </article>
 
               {/* R-02 compact */}
-              <article className="group rounded-sm border border-dashed border-border bg-background p-6 transition-all hover:border-primary hover:border-solid hover:shadow-paper lg:col-span-5 animate-fade-up">
+              <article className="group rounded-sm border border-dashed border-border bg-background p-6 transition-all hover:border-primary hover:border-solid hover:shadow-[0_4px_12px_hsl(155_22%_18%_/_0.08)] lg:col-span-5 animate-fade-up">
                 <div className="flex items-center justify-between">
                   <span className="font-mono-id text-sm text-accent">{ROUTES[1].id}</span>
                   <Crosshair className="h-4 w-4 text-secondary" aria-hidden="true" />
@@ -148,8 +158,8 @@ export default function AtlasCartographicDesign() {
               </article>
 
               {/* R-03 inline */}
-              <article className="group flex items-center gap-4 rounded-sm border border-dashed border-border bg-background p-5 transition-all hover:border-primary hover:border-solid hover:shadow-paper lg:col-span-5 animate-fade-up">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-primary bg-card shadow-paper">
+              <article className="group flex items-center gap-4 rounded-sm border border-dashed border-border bg-background p-5 transition-all hover:border-primary hover:border-solid hover:shadow-[0_4px_12px_hsl(155_22%_18%_/_0.08)] lg:col-span-5 animate-fade-up">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-primary bg-card shadow-[0_2px_8px_hsl(155_22%_18%_/_0.08)]">
                   <span className="font-mono-id text-xs font-bold text-primary">03</span>
                 </div>
                 <div className="flex-1">
@@ -160,8 +170,8 @@ export default function AtlasCartographicDesign() {
               </article>
 
               {/* R-04 wider inline */}
-              <article className="group flex items-center gap-4 rounded-sm border border-dashed border-border bg-background p-5 transition-all hover:border-primary hover:border-solid hover:shadow-paper lg:col-span-7 animate-fade-up">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-primary bg-card shadow-paper">
+              <article className="group flex items-center gap-4 rounded-sm border border-dashed border-border bg-background p-5 transition-all hover:border-primary hover:border-solid hover:shadow-[0_4px_12px_hsl(155_22%_18%_/_0.08)] lg:col-span-7 animate-fade-up">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-primary bg-card shadow-[0_2px_8px_hsl(155_22%_18%_/_0.08)]">
                   <span className="font-mono-id text-xs font-bold text-primary">04</span>
                 </div>
                 <div className="flex-1">
@@ -178,14 +188,14 @@ export default function AtlasCartographicDesign() {
           </div>
         </section>
 
-        {/* Guides */}
+        {/* Guides — asymmetric map-grid */}
         <section id="guides" className="border-b border-border" aria-labelledby="guides-heading">
           <div className="mx-auto max-w-6xl px-6 py-12 sm:px-8 sm:py-16">
             <h2 id="guides-heading" className="font-serif-display text-2xl font-bold text-primary" style={{ textWrap: 'balance' }}>Property-lifecycle guides</h2>
             <p className="mt-2 max-w-[65ch] text-sm text-muted-foreground">Four field guides organized by lifecycle stage. Each carries a coordinate reference for cross-reading with the atlas plates.</p>
             <div className="mt-8 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
               {GUIDES.map((guide, i) => (
-                <article key={guide.id} className={`group bg-card p-6 transition-colors hover:bg-background animate-fade-up ${i === 0 || i === 3 ? 'sm:col-span-2 lg:col-span-2' : ''}`}>
+                <article key={guide.id} className={`group bg-card p-6 transition-all hover:bg-background hover:shadow-[0_4px_12px_hsl(155_22%_18%_/_0.06)] animate-fade-up ${i === 0 || i === 3 ? 'sm:col-span-2 lg:col-span-2' : ''}`}>
                   <div className="flex items-center gap-2">
                     <span className="font-mono-id text-xs text-accent">{guide.id}</span>
                     <span className="font-mono-id text-xs text-muted-foreground">[{guide.coord}]</span>
@@ -209,15 +219,19 @@ export default function AtlasCartographicDesign() {
           </div>
         </section>
 
-        {/* Atlas plate */}
+        {/* Atlas plate with grid overlay on hover */}
         <section className="border-b border-border bg-card" aria-labelledby="atlas-heading">
           <div className="mx-auto max-w-6xl px-6 py-12 sm:px-8 sm:py-16">
             <div className="flex items-end justify-between">
               <h2 id="atlas-heading" className="font-serif-display text-2xl font-bold text-primary" style={{ textWrap: 'balance' }}>Visual guide atlas</h2>
               <span className="font-mono-id text-xs text-muted-foreground">PLATE 02 / 3 PANELS</span>
             </div>
-            <div className="mt-6 overflow-hidden rounded-sm border-2 border-primary shadow-lifted animate-scale-in">
+            <div className="group relative mt-6 overflow-hidden rounded-sm border-2 border-primary shadow-[0_8px_32px_hsl(155_22%_18%_/_0.15)] animate-scale-in">
               <img src="/guide-atlas.webp" alt="Three-panel visual guide atlas for waste systems" className="w-full object-cover" width={1000} height={450} />
+              <div className="absolute right-3 top-3 flex items-center gap-1 bg-primary/80 px-2 py-1 backdrop-blur-sm transition-opacity group-hover:opacity-0">
+                <Move className="h-3 w-3 text-secondary" />
+                <span className="font-mono-id text-[10px] uppercase text-secondary">Pan</span>
+              </div>
             </div>
             <div className="mt-6 grid gap-6 sm:grid-cols-3">
               {[
@@ -225,7 +239,7 @@ export default function AtlasCartographicDesign() {
                 { ref: 'Panel B', desc: 'Material category grid', coord: 'B-02' },
                 { ref: 'Panel C', desc: 'Site walk checklist', coord: 'C-03' },
               ].map((panel) => (
-                <div key={panel.ref} className="rounded-sm bg-background p-4 shadow-paper">
+                <div key={panel.ref} className="rounded-sm bg-background p-4 shadow-[0_2px_8px_hsl(155_22%_18%_/_0.04)]">
                   <div className="flex items-center gap-2">
                     <Layers className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
                     <span className="font-mono-id text-xs text-accent">{panel.ref}</span>
@@ -238,12 +252,12 @@ export default function AtlasCartographicDesign() {
           </div>
         </section>
 
-        {/* Suppliers */}
+        {/* Suppliers — coordinate table */}
         <section id="suppliers" className="border-b border-border" aria-labelledby="suppliers-heading">
           <div className="mx-auto max-w-6xl px-6 py-12 sm:px-8 sm:py-16">
             <h2 id="suppliers-heading" className="font-serif-display text-2xl font-bold text-primary" style={{ textWrap: 'balance' }}>Supplier directory</h2>
             <p className="mt-2 max-w-[65ch] text-sm text-muted-foreground">Public-fact supplier records with survey coordinates. No rankings or endorsements.</p>
-            <div className="mt-8 overflow-x-auto rounded-sm border border-dashed border-border shadow-paper">
+            <div className="mt-8 overflow-x-auto rounded-sm border border-dashed border-border shadow-[0_2px_8px_hsl(155_22%_18%_/_0.06)]">
               <table className="w-full">
                 <caption className="sr-only">Supplier directory with coordinates</caption>
                 <thead className="bg-muted">
@@ -275,7 +289,7 @@ export default function AtlasCartographicDesign() {
           <div className="mx-auto max-w-6xl px-6 py-12 sm:px-8 sm:py-16">
             <h2 id="sources-heading" className="font-serif-display text-2xl font-bold text-primary" style={{ textWrap: 'balance' }}>Source records</h2>
             <p className="mt-2 max-w-[65ch] text-sm leading-relaxed text-muted-foreground">Every claim and supplier entry traces back to an approved public-source snapshot. Source IDs are listed for inspection, not as endorsements.</p>
-            <div className="mt-8 flex items-start gap-4 rounded-sm border border-dashed border-border bg-background p-5 shadow-paper animate-fade-up">
+            <div className="mt-8 flex items-start gap-4 rounded-sm border border-dashed border-border bg-background p-5 shadow-[0_2px_8px_hsl(155_22%_18%_/_0.04)] animate-fade-up">
               <Fingerprint className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
               <div className="flex-1">
                 <p className="font-mono-id text-sm text-accent">SRC-EPA-MOVING-REDUCE-REUSE</p>
@@ -288,7 +302,7 @@ export default function AtlasCartographicDesign() {
                   <span className="font-mono-id text-xs text-muted-foreground">Manifest admitted</span>
                 </div>
               </div>
-              <Hash className="h-4 w-4 shrink-0 text-muted-foreground sm:hidden" aria-hidden="true" />
+              <ShieldCheck className="hidden h-5 w-5 shrink-0 text-primary sm:block" />
             </div>
           </div>
         </section>
@@ -307,8 +321,9 @@ export default function AtlasCartographicDesign() {
         </section>
       </main>
 
-      <footer className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-6xl px-6 py-10 sm:px-8">
+      <footer className="relative bg-primary text-primary-foreground">
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 20px, hsl(72 76% 50%) 20px, hsl(72 76% 50%) 21px)' }} />
+        <div className="relative mx-auto max-w-6xl px-6 py-10 sm:px-8">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <div className="flex items-center gap-2">
