@@ -34,7 +34,16 @@ export default function FieldNotebookDesign() {
       {/* Full-bleed hero with image as the dominant element */}
       <header className="relative" role="banner">
         <div className="relative h-[70vh] min-h-[500px] w-full overflow-hidden">
-          <img src="/field-guide-hero.webp" alt="Multifamily waste collection area with three bins at curbside on an overcast morning" className="absolute inset-0 h-full w-full object-cover" />
+          <img
+            src="/img/field-guide-hero-1600.webp"
+            srcSet="/img/field-guide-hero-800.webp 800w, /img/field-guide-hero-1200.webp 1200w, /img/field-guide-hero-1600.webp 1600w"
+            sizes="100vw"
+            alt="Multifamily waste collection area with three bins at curbside on an overcast morning"
+            className="absolute inset-0 h-full w-full object-cover"
+            width={1408}
+            height={768}
+            decoding="async"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent" />
 
@@ -173,7 +182,17 @@ export default function FieldNotebookDesign() {
               ))}
             </div>
             <div className="mt-4 overflow-hidden rounded-sm border-2 border-primary shadow-[0_8px_32px_hsl(155_22%_18%_/_0.15)]">
-              <img src="/guide-atlas.webp" alt="Three-panel visual guide atlas showing access diagrams, material categories, and site walk checklist" className="w-full object-cover" width={1000} height={500} />
+              <img
+                src="/img/guide-atlas-1400.webp"
+                srcSet="/img/guide-atlas-700.webp 700w, /img/guide-atlas-1000.webp 1000w, /img/guide-atlas-1400.webp 1400w"
+                sizes="(max-width: 1024px) 92vw, 1000px"
+                alt="Three-panel visual guide atlas showing access diagrams, material categories, and site walk checklist"
+                className="h-auto w-full object-cover"
+                width={1376}
+                height={768}
+                decoding="async"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>

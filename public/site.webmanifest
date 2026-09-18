@@ -1,0 +1,12 @@
+{
+  "name": "The Trash Hub — A Visual Field Guide to Waste",
+  "short_name": "Trash Hub",
+  "description": "Public visual field guide, material recognition keys and a public-fact supplier directory for waste systems.",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#F7F5EF",
+  "theme_color": "#1F2E27",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

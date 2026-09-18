@@ -98,7 +98,7 @@ export default function AtlasCartographicDesign() {
               </div>
               <div className="md:col-span-7 animate-fade-in">
                 <div className="group relative overflow-hidden rounded-sm border-2 border-primary shadow-[0_8px_32px_hsl(155_22%_18%_/_0.15)]">
-                  <img src="/atlas-cartographic.webp" alt="Cartographic survey map of waste collection routes" className="w-full object-cover" width={700} height={450} />
+                  <img src="/img/atlas-map-1400.webp" srcSet="/img/atlas-map-700.webp 700w, /img/atlas-map-1000.webp 1000w, /img/atlas-map-1400.webp 1400w" sizes="(max-width: 1024px) 92vw, 700px" alt="Cartographic survey map of waste collection routes" className="h-auto w-full object-cover" width={1408} height={768} />
                   {/* Corner annotations */}
                   <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-sm border border-accent bg-card/90 px-2.5 py-1 shadow-[0_2px_8px_hsl(0_0%_0%_/_0.1)] backdrop-blur-sm">
                     <Crosshair className="h-3 w-3 text-accent" />
@@ -227,7 +227,7 @@ export default function AtlasCartographicDesign() {
               <span className="font-mono-id text-xs text-muted-foreground">PLATE 02 / 3 PANELS</span>
             </div>
             <div className="group relative mt-6 overflow-hidden rounded-sm border-2 border-primary shadow-[0_8px_32px_hsl(155_22%_18%_/_0.15)] animate-scale-in">
-              <img src="/guide-atlas.webp" alt="Three-panel visual guide atlas for waste systems" className="w-full object-cover" width={1000} height={450} />
+              <img src="/img/guide-atlas-1400.webp" srcSet="/img/guide-atlas-700.webp 700w, /img/guide-atlas-1000.webp 1000w, /img/guide-atlas-1400.webp 1400w" sizes="(max-width: 1024px) 92vw, 1200px" alt="Three-panel visual guide atlas for waste systems" className="h-auto w-full object-cover" width={1376} height={768} />
               <div className="absolute right-3 top-3 flex items-center gap-1 bg-primary/80 px-2 py-1 backdrop-blur-sm transition-opacity group-hover:opacity-0">
                 <Move className="h-3 w-3 text-secondary" />
                 <span className="font-mono-id text-[10px] uppercase text-secondary">Pan</span>

@@ -104,7 +104,7 @@ export default function IndustrialWayfindingDesign() {
               </div>
               <div className="lg:col-span-5">
                 <div className="relative h-64 lg:h-full">
-                  <img src="/industrial-wayfinding.webp" alt="Industrial waste transfer station with overhead structure and safety signage" className="h-full w-full object-cover animate-scale-in" width={500} height={600} />
+                  <img src="/img/industrial-wayfinding-1200.webp" srcSet="/img/industrial-wayfinding-800.webp 800w, /img/industrial-wayfinding-1200.webp 1200w" sizes="(max-width: 1024px) 100vw, 600px" alt="Industrial waste transfer station with overhead structure and safety signage" className="h-full w-full object-cover animate-scale-in" width={1408} height={768} />
                   <div className="absolute bottom-0 left-0 bg-primary px-4 py-2 shadow-[0_4px_12px_hsl(155_22%_18%_/_0.3)]">
                     <p className="font-mono-id text-xs uppercase tracking-widest text-primary-foreground">FIG.01 / TRANSFER STATION</p>
                   </div>
@@ -180,7 +180,7 @@ export default function IndustrialWayfindingDesign() {
               <h2 id="atlas-heading" className="font-serif-display text-xl font-bold uppercase tracking-tight text-primary" style={{ textWrap: 'balance' }}>Visual Guide Atlas</h2>
             </div>
             <div className="group relative mt-8 overflow-hidden border-2 border-primary shadow-[0_8px_32px_hsl(155_22%_18%_/_0.15)] animate-scale-in">
-              <img src="/guide-atlas.webp" alt="Three-panel visual guide atlas for waste systems" className="w-full object-cover" width={1200} height={500} />
+              <img src="/img/guide-atlas-1400.webp" srcSet="/img/guide-atlas-700.webp 700w, /img/guide-atlas-1000.webp 1000w, /img/guide-atlas-1400.webp 1400w" sizes="(max-width: 1024px) 92vw, 1200px" alt="Three-panel visual guide atlas for waste systems" className="h-auto w-full object-cover" width={1376} height={768} />
               <div className="absolute right-3 top-3 flex items-center gap-1 bg-primary/80 px-2 py-1 backdrop-blur-sm transition-opacity group-hover:opacity-0">
                 <Maximize2 className="h-3 w-3 text-secondary" />
                 <span className="font-mono-id text-[10px] uppercase text-secondary">Expand</span>

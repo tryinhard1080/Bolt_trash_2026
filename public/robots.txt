@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Static public reference. Nothing here is gated, metered or tracked.
